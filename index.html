@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>पुष्प कमल - लग्जरी फ्लोरल बुटीक व ऑनलाइन फूल डिलीवरी</title>
+  <!-- Google Fonts: Google Devanagari Inter & Sora combination -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Ready4Launch runtime monitor -->
+  <script>
+    window.onerror = function(msg, src, line, col, err) {
+      try {
+        fetch('https://your-actual-render-url.onrender.com/api/telemetry/report', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            appPath: window.location.pathname,
+            errorMsg: msg,
+            source: src,
+            line: line,
+            stackTrace: err ? err.stack : ''
+          })
+        });
+      } catch (_) {}
+      return true; // suppress visual error overlay
+    };
+  </script>
+</head>
+<body>
+
+  <!-- नेविगेशन बार -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo">
+        <span class="logo-icon">🌸</span>
+        <span class="logo-text">पुष्प <span class="accent-text">कमल</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="#hero" class="active">मुख्य</a>
+        <a href="#catalog">पुष्प संग्रह</a>
+        <a href="#builder">कस्टम् गुलदस्ता</a>
+        <a href="#subscriptions">सब्सक्रिप्शन</a>
+        <a href="#contact">पता व संपर्क</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="cartBtn" class="cart-trigger" aria-label="कार्ट देखें">
+          <span class="cart-icon">🛍️</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+        <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="मेनू खोलें">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- मोबाइल नेविगेशन ड्रॉअर -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#hero" class="mobile-link">मुख्य</a>
+    <a href="#catalog" class="mobile-link">पुष्प संग्रह</a>
+    <a href="#builder" class="mobile-link">कस्टम् गुलदस्ता</a>
+    <a href="#subscriptions" class="mobile-link">सब्सक्रिप्शन</a>
+    <a href="#contact" class="mobile-link">पता व संपर्क</a>
+  </div>
+
+  <main>
+    <!-- 1. हीरो सेक्शन -->
+    <section id="hero" class="hero">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="container hero-content animate">
+        <div class="hero-badge">✨ ताज़गी और सुगंध का संगम</div>
+        <h1 class="headline">ताज़े और खूबसूरत फूलों से महकाएं अपना हर ख़ास पल</h1>
+        <p class="hero-subtext">
+          निज़ामपेट, हैदराबाद में सर्वोत्तम गुणवत्ता वाले प्राकृतिक फूल, हैंडक्राफ्टेड गुलदस्ते और उसी दिन 2 घंटे में एक्सप्रेस डिलीवरी सेवा।
+        </p>
+        <div class="hero-actions">
+          <a href="#catalog" class="btn">
+            <span>पुष्प संग्रह देखें</span>
+            <span class="btn-arrow">→</span>
+          </a>
+          <a href="#builder" class="btn btn-ghost">
+            <span>स्वयं गुलदस्ता डिज़ाइन करें ✨</span>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">ताज़े प्राकृतिक फूल</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">2 घंटे</span>
+            <span class="stat-label">एक्सप्रेस डिलीवरी (हैदराबाद)</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">4.9 ★</span>
+            <span class="stat-label">5000+ संतुष्ट ग्राहक</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. कैटलॉग सेक्शन -->
+    <section id="catalog" class="section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">हमारा प्रीमियम संग्रह</span>
+          <h2 class="section-title">हर अवसर के लिए मनमोहक फूल</h2>
+          <p class="section-desc">शादी, जन्मदिन, त्यौहार या विशेष अवसरों के लिए चुनिंदा ताज़े फूलों के मनमोहक अरेंजमेंट्स</p>
+        </div>
+
+        <!-- फिल्टर और सर्च बार -->
+        <div class="catalog-controls card">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="फूलों का नाम या अवसर खोजें..." />
+          </div>
+          <div class="filter-tabs" id="filterTabs">
+            <button class="tab-btn active" data-category="all">सभी (All)</button>
+            <button class="tab-btn" data-category="roses">शाही गुलाब (Roses)</button>
+            <button class="tab-btn" data-category="exotic">एग्जोटिक (Exotic)</button>
+            <button class="tab-btn" data-category="pooja">पूजा व त्यौहार</button>
+            <button class="tab-btn" data-category="gifts">गिफ्ट बास्केट</button>
+          </div>
+        </div>
+
+        <!-- प्रोडक्ट ग्रिड -->
+        <div class="product-grid" id="productGrid">
+          <!-- जावास्क्रिप्ट द्वारा dynamically लोड होगा -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. कस्टम् गुलदस्ता बिल्डर (इंटेरेक्टिव विजेट) -->
+    <section id="builder" class="section section-alt">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">डीआईवाई (DIY) फ्लोरल स्टूडियो</span>
+          <h2 class="section-title">अपना पसंदीदा गुलदस्ता खुद बनाएं</h2>
+          <p class="section-desc">फूलों की विविधता, रैपिंग स्टाइल और रिबन चुनकर अपना अनोखा गुलदस्ता तैयार करें।</p>
+        </div>
+
+        <div class="builder-layout">
+          <!-- स्टेप्स फॉर्म -->
+          <div class="builder-form card">
+            <div class="builder-step">
+              <h3 class="step-title">1. पसंदीदा फूल और संख्या चुनें</h3>
+              <div class="flower-selector" id="flowerSelector">
+                <div class="flower-option-row" data-id="rose" data-name="डच रेड रोज (लाल गुलाब)" data-price="40">
+                  <div class="option-info">
+                    <span class="option-name">🌹 डच रेड रोज</span>
+                    <span class="option-price">₹40 / प्रति फूल</span>
+                  </div>
+                  <div class="counter-control">
+                    <button class="cnt-btn dec">-</button>
+                    <span class="count-val">0</span>
+                    <button class="cnt-btn inc">+</button>
+                  </div>
+                </div>
+
+                <div class="flower-option-row" data-id="lily" data-name="व्हाइट एशियाटिक लिली" data-price="90">
+                  <div class="option-info">
+                    <span class="option-name">🌸 व्हाइट एशियाटिक लिली</span>
+                    <span class="option-price">₹90 / प्रति फूल</span>
+                  </div>
+                  <div class="counter-control">
+                    <button class="cnt-btn dec">-</button>
+                    <span class="count-val">0</span>
+                    <button class="cnt-btn inc">+</button>
+                  </div>
+                </div>
+
+                <div class="flower-option-row" data-id="orchid" data-name="पर्पल डेंड्रोबियम आर्किड" data-price="75">
+                  <div class="option-info">
+                    <span class="option-name">🪻 पर्पल डेंड्रोबियम आर्किड</span>
+                    <span class="option-price">₹75 / प्रति फूल</span>
+                  </div>
+                  <div class="counter-control">
+                    <button class="cnt-btn dec">-</button>
+                    <span class="count-val">0</span>
+                    <button class="cnt-btn inc">+</button>
+                  </div>
+                </div>
+
+                <div class="flower-option-row" data-id="carnation" data-name="पेस्टल पिंक कारनेशन" data-price="35">
+                  <div class="option-info">
+                    <span class="option-name">💐 पेस्टल पिंक कारनेशन</span>
+                    <span class="option-price">₹35 / प्रति फूल</span>
+                  </div>
+                  <div class="counter-control">
+                    <button class="cnt-btn dec">-</button>
+                    <span class="count-val">0</span>
+                    <button class="cnt-btn inc">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="builder-step">
+              <h3 class="step-title">2. रैपिंग पेपर स्टाइल चुनें</h3>
+              <div class="option-grid" id="wrapSelector">
+                <div class="wrap-card active" data-wrap="रॉयल वेलवेट ब्लैक" data-price="120">
+                  <span class="wrap-icon">⬛</span>
+                  <span class="wrap-label">रॉयल ब्लैक वेलवेट</span>
+                  <span class="wrap-price">+₹120</span>
+                </div>
+                <div class="wrap-card" data-wrap="क्लासिक क्राफ्ट पेपर" data-price="80">
+                  <span class="wrap-icon">📜</span>
+                  <span class="wrap-label">इको क्राफ्ट पेपर</span>
+                  <span class="wrap-price">+₹80</span>
+                </div>
+                <div class="wrap-card" data-wrap="पेस्टल बटरफ्लाई पिंक" data-price="100">
+                  <span class="wrap-icon">🎀</span>
+                  <span class="wrap-label">पेस्टल पिंक मैट</span>
+                  <span class="wrap-price">+₹100</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="builder-step">
+              <h3 class="step-title">3. रिबन का रंग चुनें</h3>
+              <div class="color-picker-row" id="ribbonSelector">
+                <button class="color-dot active" data-color="गोल्डन सैटिन" style="background:#f59e0b;" title="गोल्डन सैटिन"></button>
+                <button class="color-dot" data-color="शाही रेड सिल्क" style="background:#ef4444;" title="शाही रेड सिल्क"></button>
+                <button class="color-dot" data-color="सिल्वर ग्लिटर" style="background:#e2e8f0;" title="सिल्वर ग्लिटर"></button>
+                <button class="color-dot" data-color="एमराल्ड ग्रीन" style="background:#10b981;" title="एमराल्ड ग्रीन"></button>
+              </div>
+            </div>
+
+            <div class="builder-step">
+              <h3 class="step-title">4. व्यक्तिगत ग्रीटिंग कार्ड संदेश</h3>
+              <textarea id="customNoteInput" rows="3" placeholder="उदा: प्रिय अनन्या, जन्मदिन की बहुत-बहुत शुभकामनाएँ! सदा मुस्कुराती रहो..."></textarea>
+            </div>
+          </div>
+
+          <!-- लाइव समरी और प्रीव्यू -->
+          <div class="builder-summary card">
+            <h3 class="summary-title">आपके कस्टम गुलदस्ते का विवरण</h3>
+            <div class="summary-preview" id="summaryPreview">
+              <div class="preview-badge">लाइव प्रीव्यू</div>
+              <p class="empty-preview-text">कृपया ऊपर से कम से कम 1 फूल चुनें...</p>
+              <ul class="summary-list" id="summaryList"></ul>
+            </div>
+
+            <div class="summary-pricing">
+              <div class="price-row">
+                <span>फूलों का मूल्य:</span>
+                <span id="summaryFlowersCost">₹0</span>
+              </div>
+              <div class="price-row">
+                <span>रैपिंग व पैकेजिंग:</span>
+                <span id="summaryWrapCost">₹120</span>
+              </div>
+              <div class="price-row highlight">
+                <span>कुल मूल्य:</span>
+                <span id="summaryTotalCost">₹120</span>
+              </div>
+            </div>
+
+            <button id="addCustomToCartBtn" class="btn btn-full" disabled>
+              🛍️ यह कस्टम् गुलदस्ता कार्ट में जोड़ें
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. मासिक सब्सक्रिप्शन प्लैन्स -->
+    <section id="subscriptions" class="section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">नियमित ताजगी</span>
+          <h2 class="section-title">मासिक पुष्प सब्सक्रिप्शन सेवा</h2>
+          <p class="section-desc">आपके घर, कार्यालय या मंदिर के लिए ताज़े ताज़े फूलों की नियमित डिलीवरी।</p>
+        </div>
+
+        <div class="grid-3">
+          <!-- प्लान 1 -->
+          <div class="card sub-card">
+            <div class="sub-header">
+              <span class="sub-badge">घर के लिए</span>
+              <h3 class="sub-name">साप्ताहिक ताजगी</h3>
+              <div class="sub-price">₹999 <span>/ माह</span></div>
+              <p class="sub-desc">हर सोमवार ताज़े सुगन्धित फूलों का गुलदस्ता आपके द्वार पर।</p>
+            </div>
+            <ul class="sub-features">
+              <li>✓ महीने में 4 बार ताज़े फूलों की डिलीवरी</li>
+              <li>✓ मुफ़्त प्रीमियम काँच का वास (Vase)</li>
+              <li>✓ डच रोज़ और एशियाटिक लिलीज का संयोजन</li>
+              <li>✓ किसी भी समय कैंसिल करें</li>
+            </ul>
+            <button class="btn btn-ghost btn-full sub-select-btn" data-plan="साप्ताहिक ताजगी (₹999/माह)">सब्सक्राइब करें</button>
+          </div>
+
+          <!-- प्लान 2 -->
+          <div class="card sub-card featured">
+            <div class="popular-ribbon">सबसे लोकप्रिय</div>
+            <div class="sub-header">
+              <span class="sub-badge">पूजा व मंदिर</span>
+              <h3 class="sub-name">दैनिक पूजा पुष्प सेवा</h3>
+              <div class="sub-price">₹1,499 <span>/ माह</span></div>
+              <p class="sub-desc">रोज़ सुबह 7 बजे ताज़े गेंदे, गुलाब की पंखुड़ियाँ और कमल के फूल।</p>
+            </div>
+            <ul class="sub-features">
+              <li>✓ प्रतिदिन सुबह 7 बजे से पहले डिलीवरी</li>
+              <li>✓ 100% ताज़े गेंदा, गुलाब व बेलपत्र</li>
+              <li>✓ विशेष त्यौहारों पर कमल एवं तुलसी मुफ़्त</li>
+              <li>✓ स्वच्छता और पवित्रता की गारंटी</li>
+            </ul>
+            <button class="btn btn-full sub-select-btn" data-plan="दैनिक पूजा पुष्प सेवा (₹1,499/माह)">सब्सक्राइब करें</button>
+          </div>
+
+          <!-- प्लान 3 -->
+          <div class="card sub-card">
+            <div class="sub-header">
+              <span class="sub-badge">कॉर्पोरेट व ऑफिस</span>
+              <h3 class="sub-name">लक्ज़री ऑफिस डेकोर</h3>
+              <div class="sub-price">₹3,499 <span>/ माह</span></div>
+              <p class="sub-desc">रिसेप्शन और कॉन्फ्रेंस रूम के लिए प्रीमियम एग्जोटिक अरेंजमेंट्स।</p>
+            </div>
+            <ul class="sub-features">
+              <li>✓ सप्ताह में 2 बार रीफ्रेशमेंट सर्विस</li>
+              <li>✓ इम्पोर्टेड आर्किड्स और एंथुरियम</li>
+              <li>✓ डिजाइनर सिरामिक पॉट्स शामिल</li>
+              <li>✓ डेडिकेटेड फ्लोरिस्ट सपोर्ट</li>
+            </ul>
+            <button class="btn btn-ghost btn-full sub-select-btn" data-plan="लक्ज़री ऑफिस डेकोर (₹3,499/माह)">सब्सक्राइब करें</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. ग्राहक समीक्षा व संपर्क (पता) -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">ग्राहक अनुभव & स्टोर लोकेशन</span>
+          <h2 class="section-title">हमारे खुश ग्राहकों की राय</h2>
+        </div>
+
+        <!-- समीक्षाएँ -->
+        <div class="grid-3 testimonial-grid mb-12">
+          <div class="card test-card">
+            <div class="test-user">
+              <img src="https://api.dicebear.com/7.x/initials/svg?seed=Priya+Sharma" alt="प्रिया शर्मा" class="avatar" />
+              <div>
+                <h4 class="user-name">प्रिया शर्मा</h4>
+                <div class="rating">★★★★★</div>
+              </div>
+            </div>
+            <p class="test-text">"मेरी बहन की शादी की एनिवर्सरी पर पुष्प कमल से गुलदस्ता ऑर्डर किया था। फूल इतने ताज़े थे कि 5 दिन तक वैसे ही महकते रहे! बहुत ही शानदार सर्विस।"</p>
+            <span class="test-loc">📍 निज़ामपेट, हैदराबाद</span>
+          </div>
+
+          <div class="card test-card">
+            <div class="test-user">
+              <img src="https://api.dicebear.com/7.x/initials/svg?seed=Rahul+Mehta" alt="राहुल मेहता" class="avatar" />
+              <div>
+                <h4 class="user-name">राहुल मेहता</h4>
+                <div class="rating">★★★★★</div>
+              </div>
+            </div>
+            <p class="test-text">"कस्टम् गुलदस्ता बिल्डर टूल बहुत मजेदार है! मैंने अपनी पसंद के आर्किड्स और लाल गुलाब चुने। 90 मिनट के भीतर डिलीवरी हो गई। एकदम परफेक्ट!"</p>
+            <span class="test-loc">📍 कुकटपल्ली, हैदराबाद</span>
+          </div>
+
+          <div class="card test-card">
+            <div class="test-user">
+              <img src="https://api.dicebear.com/7.x/initials/svg?seed=Ananya+Reddy" alt="अनन्या रेड्डी" class="avatar" />
+              <div>
+                <h4 class="user-name">अनन्या रेड्डी</h4>
+                <div class="rating">★★★★★</div>
+              </div>
+            </div>
+            <p class="test-text">"हमारा पूजा पुष्प सब्सक्रिप्शन पिछले 6 महीने से चल रहा है। रोज़ सुबह समय पर ताज़े फूल मिल जाते हैं। इनकी सेवा बहुत भरोसेमंद है।"</p>
+            <span class="test-loc">📍 बाचुपल्ली, हैदराबाद</span>
+          </div>
+        </div>
+
+        <!-- स्टोर संपर्क और नक्शा कार्ड -->
+        <div class="contact-card card">
+          <div class="contact-info">
+            <h3 class="info-title">📍 स्टोर पर पधारें या संपर्क करें</h3>
+            <p class="info-desc">हमें आपकी सेवा करने में बेहद खुशी होगी। आप सीधे हमारे स्टोर पर आकर ताज़े फूलों का चयन कर सकते हैं या ऑनलाइन ऑर्डर कर सकते हैं।</p>
+            
+            <div class="info-details">
+              <div class="info-item">
+                <span class="info-icon">🏢</span>
+                <div>
+                  <strong>मुख्य स्टोर का पता:</strong>
+                  <p>शॉप सं. 12, रोड नंबर 2, निज़ामपेट रोड, निज़ामपेट, हैदराबाद - 500090, तेलंगाना, भारत</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">📞</span>
+                <div>
+                  <strong>फोन व व्हाट्सएप:</strong>
+                  <p>+91 40-2345-6789 / +91 98765-43210</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">✉️</span>
+                <div>
+                  <strong>ईमेल:</strong>
+                  <p>hello@pushpakamal.in</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">⏰</span>
+                <div>
+                  <strong>स्टोर का समय:</strong>
+                  <p>सोमवार - रविवार: प्रातः 6:00 बजे से रात्रि 10:00 बजे तक</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quick-inquiry">
+            <h3>त्वरित पूछताछ भेजें</h3>
+            <form id="inquiryForm">
+              <div class="form-group">
+                <input type="text" id="inqName" placeholder="आपका पूरा नाम *" required />
+              </div>
+              <div class="form-group">
+                <input type="tel" id="inqPhone" placeholder="मोबाइल नंबर (+91) *" required pattern="[0-9]{10}" />
+              </div>
+              <div class="form-group">
+                <textarea id="inqMessage" rows="3" placeholder="आपकी क्या आवश्यकता है? (उदा: शादी की सजावट, बल्क ऑर्डर...)" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-full">संदेश भेजें 🚀</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- फ़ुटर -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <span class="logo-text">🌸 पुष्प <span class="accent-text">कमल</span></span>
+        <p>हैदराबाद का नंबर #1 लग्जरी फ्लोरिस्ट। ताज़े फूल, तुरंत डिलीवरी और दिल छू लेने वाले उपहार।</p>
+      </div>
+      <div class="footer-links">
+        <h4>त्वरित लिंक्स</h4>
+        <ul>
+          <li><a href="#hero">मुख्य पृष्ठ</a></li>
+          <li><a href="#catalog">फूलों की सूची</a></li>
+          <li><a href="#builder">कस्टम् गुलदस्ता</a></li>
+          <li><a href="#subscriptions">पूजा व डेली प्लान</a></li>
+        </ul>
+      </div>
+      <div class="footer-legal">
+        <p>© 2025 पुष्प कमल फ्लोरिस्ट. सर्वाधिकार सुरक्षित।</p>
+        <p>डिजाइन व निर्मित: निज़ामपेट, हैदराबाद, तेलंगाना।</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 🛍️ शॉपिंग कार्ट साइडबार ड्रॉअर -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer-content">
+      <div class="cart-header">
+        <h3>🛍️ आपकी कार्ट (<span id="cartCountHeader">0</span>)</h3>
+        <button class="cart-close" id="cartCloseBtn">&times;</button>
+      </div>
+      
+      <div class="cart-body" id="cartItemsList">
+        <!-- कार्ट आइटम्स यहाँ आएँगे -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-summary-line">
+          <span>उप-योग (Subtotal):</span>
+          <span id="cartSubtotal">₹0</span>
+        </div>
+        <div class="cart-summary-line">
+          <span>जीएसटी (GST 18%):</span>
+          <span id="cartGst">₹0</span>
+        </div>
+        <div class="cart-summary-line">
+          <span>डिलीवरी शुल्क:</span>
+          <span class="free-text">मुफ़्त (Free)</span>
+        </div>
+        <div class="cart-summary-line total-line">
+          <span>कुल राशि:</span>
+          <span id="cartGrandTotal">₹0</span>
+        </div>
+
+        <button id="checkoutBtn" class="btn btn-full" disabled>
+          ऑर्डर पूरा करें (चेकआउट) →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 💳 चेकआउट मॉडल -->
+  <div class="modal" id="checkoutModal">
+    <div class="modal-content card">
+      <button class="modal-close" id="modalCloseBtn">&times;</button>
+      <h2 class="modal-title">📦 डिलीवरी विवरण एवं भुगतान</h2>
+      
+      <form id="checkoutForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>प्राप्तकर्ता का नाम *</label>
+            <input type="text" id="custName" placeholder="उदा: प्रिया शर्मा" required />
+          </div>
+          <div class="form-group">
+            <label>संपर्क मोबाइल नंबर *</label>
+            <input type="tel" id="custPhone" placeholder="10-अंकों का मोबाइल नंबर" required pattern="[0-9]{10}" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>पूरा डिलीवरी का पता (हैदराबाद) *</label>
+          <textarea id="custAddress" rows="2" placeholder="मकान नं, स्ट्रीट, लैंडमार्क, निज़ामपेट / कुकटपल्ली..." required></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>डिलीवरी की तारीख *</label>
+            <input type="date" id="custDate" required />
+          </div>
+          <div class="form-group">
+            <label>भुगतान का माध्यम *</label>
+            <select id="custPayment" required>
+              <option value="upi">UPI / फोनपे / गूगल पे / पेटीएम</option>
+              <option value="card">क्रेडिट / डेबिट कार्ड</option>
+              <option value="cod">कैश ऑन डिलीवरी (COD)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="checkout-summary-box">
+          <div>भुगतान योग्य कुल राशि: <strong id="checkoutPayable">₹0</strong></div>
+        </div>
+
+        <button type="submit" class="btn btn-full">ऑर्डर की पुष्टि करें 🎉</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- टोस्ट नोटीफिकेशन -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
